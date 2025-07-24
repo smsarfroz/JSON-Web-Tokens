@@ -10,19 +10,19 @@ app.get('/api', (req, res) => {
     });
 });
 
-// app.post('/api/posts', verifyToken, (req, res) => {
-//     jwt.verify(req.token, 'secretkey', (err, authData) => {
-//         if (err) {
-//             res.sendStatus(403);
-//         } else {
-//             res.json({
-//                 message: 'Post created...',
-//                 authData
-//             });
-//         }
-//     });
+app.post('/api/posts', verifyToken, (req, res) => {
+    jwt.verify(req.token, 'secretkey', (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            res.json({
+                message: 'Post created...',
+                authData
+            });
+        }
+    });
     
-// });
+});
 
 app.post('/api/login', (req, res) => {
     // Mock user 
